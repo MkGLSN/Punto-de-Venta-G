@@ -1,0 +1,325 @@
+/* Variables */
+/* Globals */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+input[type=date] {
+  max-height: 39px;
+}
+
+label {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: #494c4b;
+}
+
+/* Helpers */
+.flex {
+  display: flex;
+}
+
+.filled .fillable {
+  border-color: transparent;
+  border-radius: 0;
+  color: #959998;
+  background-color: transparent;
+  transition: padding 0.25s;
+}
+.filled .fillable:focus {
+  border-color: #5cb3fd;
+  border-radius: 0.25rem;
+  color: #494c4b;
+  background-color: #fff;
+}
+.filled select.fillable,
+.filled input[type=text].fillable, .filled input[type=number].fillable,
+.filled textarea.fillable {
+  padding-right: 0;
+  padding-left: 0;
+}
+.filled select.fillable:focus,
+.filled input[type=text].fillable:focus, .filled input[type=number].fillable:focus,
+.filled textarea.fillable:focus {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+/* Own framework */
+.fw-box {
+  overflow: hidden;
+  margin-bottom: 10px;
+  border-radius: 0.25rem;
+  background-color: #f6f6f6;
+}
+
+.fw-radio-group {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+.fw-radio-group__option {
+  flex: 1 1 0%;
+  display: flex;
+  justify-content: center;
+  background-color: #e9e9e9;
+}
+.fw-radio-group__option:last-child label {
+  border: 0;
+}
+.fw-radio-group input[type=radio] {
+  position: absolute;
+  left: -99999px;
+}
+.fw-radio-group input[type=radio]:focus + label {
+  background-color: #dddddd;
+}
+.fw-radio-group input[type=radio]:active + label, .fw-radio-group input[type=radio]:checked:focus + label {
+  color: #fff;
+  background-color: #0279b3;
+}
+.fw-radio-group input[type=radio]:checked + label {
+  color: #fff;
+  background-color: #039BE5;
+}
+.fw-radio-group label {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+  border-right: 2px solid #f6f6f6;
+  font-weight: 400;
+  transition: all 0.25s;
+}
+
+/* Table */
+.fw-thead {
+  border-bottom: 1px solid #e9e9e9;
+  color: #494c4b;
+  font-weight: 700;
+}
+
+.fw-tbody .fw-row:nth-of-type(even) {
+  background-color: #eeeeee;
+}
+.fw-tbody .fw-row:hover {
+  background-color: #e4e4e4;
+}
+
+.fw-tfoot {
+  border-top: 1px solid #e9e9e9;
+  color: #494c4b;
+  font-weight: 700;
+}
+
+.fw-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.fw-row .fw-cell {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+/* Styles */
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+}
+
+.provider {
+  display: flex;
+  flex-flow: row wrap;
+}
+.provider__main {
+  flex: 1 1 35%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  padding-right: 20px;
+  margin: 0;
+}
+.provider__main__selection {
+  display: flex;
+  flex-flow: row wrap;
+}
+.provider__main__selection > div {
+  flex: 1 1 50%;
+  padding: 5px;
+}
+.provider__detail {
+  flex: 1 1 65%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 5px;
+  padding-left: 20px;
+  margin: 0;
+  border-left: 2px solid #eeeeee;
+}
+.provider__detail > li {
+  flex: 1 1 30%;
+  padding: 5px;
+}
+.provider__income {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  border-top: 2px solid #eeeeee;
+  background-color: #eeeeee;
+}
+.provider__income .fw-radio-group {
+  flex: 0 1 100px;
+}
+.provider__income .fw-radio-group__option {
+  background-color: #dddddd;
+}
+.provider__income .fw-radio-group__option label {
+  border-right-color: #eeeeee;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+}
+.products__loader {
+  display: flex;
+  display: none;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.products__loader > div {
+  padding: 5px;
+}
+.products__loader > div:first-child {
+  flex: 1 1 auto;
+  max-width: 450px;
+}
+.products__list {
+  padding: 5px;
+}
+.products__list .fw-tbody .fw-row:first-child:hover {
+  background-color: initial;
+}
+.products__list .fw-row .fw-cell {
+  flex: 2 1 0%;
+}
+.products__list .fw-row .fw-cell:nth-child(1) {
+  flex: 3 1 0%;
+}
+.products__list .fw-row .fw-cell:last-child {
+  flex: 0 0 38px;
+}
+.products__calcs {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 5px;
+  padding-top: 15px;
+  border-top: 2px solid #eeeeee;
+  background-color: #eeeeee;
+}
+.products__calcs > div {
+  flex: 0 1 calc(100% / 6);
+  padding: 5px;
+}
+.products__calcs > div:last-child {
+  margin-left: auto;
+}
+.products__calcs label {
+  text-transform: uppercase;
+}
+
+.payment {
+  margin-top: 10px;
+}
+.payment h3 {
+  padding: 5px;
+  color: #fff;
+  background-color: #039BE5;
+  font-size: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.payment__all {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  border-bottom: 2px solid #eeeeee;
+}
+.payment__all > div {
+  padding: 5px;
+}
+.payment__all select {
+  margin-bottom: 5px;
+}
+.payment__checks {
+  display: flex;
+  padding: 5px;
+  background-color: #eeeeee;
+}
+.payment__checks__loader {
+  flex: 1 1 20%;
+  padding: 5px;
+  padding-top: 10px;
+}
+.payment__checks__loader .flex {
+  margin-bottom: 5px;
+}
+.payment__checks__loader .flex > :first-child {
+  margin-right: 5px;
+}
+.payment__checks__loader p {
+  color: #959998;
+  font-size: 0.9em;
+}
+.payment__checks__detail {
+  flex: 1 1 80%;
+  padding: 5px;
+}
+.payment__checks__detail__head {
+  overflow: hidden;
+  top: 10px;
+  align-items: flex-start;
+  height: 30px;
+}
+.payment__checks__detail__head .hidden {
+  visibility: hidden;
+}
+.payment__checks__detail__body {
+  overflow: auto;
+  max-height: 300px;
+}
+.payment__checks__detail__body__slot:first-child .fw-cell:last-child .btn {
+  visibility: hidden;
+}
+.payment__checks__detail .fw-row .fw-cell:last-child {
+  flex: 0 1 auto;
+}
+.payment__checks__detail .fw-row .fw-cell:last-child .btn {
+  padding: 0.25rem 0.5rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 20px 0 40px;
+}
+.controls .btn {
+  cursor: pointer;
+}

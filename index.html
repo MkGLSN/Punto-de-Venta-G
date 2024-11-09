@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Mauro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main>
+  <section class="provider fw-box">
+    <div class="provider__main">
+      <div class="provider__main__selection">
+        <div>
+          <label for="provider">Proveedor</label>
+          <input class="form-control" id="provider" name="provider" type="text" placeholder="Buscar..." autofocus>
+        </div>
+        <div>
+          <label for="date">Fecha</label>
+          <input class="form-control" id="date" name="date" type="date" value="2017-04-27">
+        </div>
+        <div>
+          <label>Razón Social</label>
+          <input class="form-control" type="text" value="Invid S.A." disabled>
+        </div>
+        <div>
+          <label>CUIT</label>
+          <input class="form-control" type="text" value="34-6154237-1" disabled>
+        </div>
+        <div>
+          <label>Teléfono</label>
+          <input class="form-control" type="text" value="(011) 3220-0500" disabled>
+        </div>
+        <div>
+          <label>Dirección</label>
+          <input class="form-control" type="text" value="Agüero 927 / 931" disabled>
+        </div>
+      </div>
+    </div>
+    <ul class="provider__detail">
+      <li>
+        <label>Tipo de factura</label>
+        <div class="fw-radio-group">
+          <div class="fw-radio-group__option">
+            <input type="radio" id="bill-type-1" name="bill-type" value="0" checked>
+            <label for="bill-type-1">A</label>
+          </div>
+          <div class="fw-radio-group__option">
+            <input type="radio" id="bill-type-2" name="bill-type" value="1">
+            <label for="bill-type-2">B</label>
+          </div>
+          <div class="fw-radio-group__option">
+            <input type="radio" id="bill-type-3" name="bill-type" value="2">
+            <label for="bill-type-3">C</label>
+          </div>
+        </div>
+      </li>
+      <li>
+        <label for="sale-point">Punto de venta</label>
+        <input class="form-control fillable" id="sale-point" name="sale-point" type="text">
+      </li>
+      <li>
+        <label for="bill-number">Nro. factura</label>
+        <input class="form-control fillable" id="bill-number" name="bill-number" type="text">
+      </li>
+      <li>
+        <label for="expense-type">Tipo de gasto</label>
+        <select class="form-control" id="expense-type" name="expense-type">
+          <option value="0">Un tipo de gasto x default</option>
+        </select>
+      </li>
+      <li>
+        <label for="expense">Gasto</label>
+        <select class="form-control" id="expense" name="expense">
+          <option value="0">Un gasto x default</option>
+        </select>
+      </li>
+      <li>
+        <label>Moneda</label>
+        <div class="fw-radio-group">
+          <div class="fw-radio-group__option">
+            <input type="radio" id="currency-1" name="currency" value="0" checked>
+            <label for="currency-1">AR$</label>
+          </div>
+          <div class="fw-radio-group__option">
+            <input type="radio" id="currency-2" name="currency" value="1">
+            <label for="currency-2">U$D</label>
+          </div>
+          <div class="fw-radio-group__option">
+            <input type="radio" id="currency-3" name="currency" value="2">
+            <label for="currency-3">€</label>
+          </div>
+        </div>
+      </li>
+      <li>
+        <label for="concept">Concepto</label>
+        <textarea class="form-control fillable" id="concept" name="concept" rows="1"></textarea>
+      </li>
+    </ul>
+    <div class="provider__income">      
+      <div class="fw-radio-group">
+        <div class="fw-radio-group__option">
+          <input type="radio" id="income-type-1" name="income-type" value="0" checked>
+          <label for="income-type-1">1B</label>
+        </div>
+        <div class="fw-radio-group__option">
+          <input type="radio" id="income-type-2" name="income-type" value="1">
+          <label for="income-type-2">2N</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products fw-box">
+    <div class="products__loader">
+      <div>
+        <label for="products">Agregar producto / servicio</label>
+        <input class="form-control" id="products" name="products" type="text" placeholder="Buscar...">
+      </div>
+      <div>
+        <label for="quantity">Cantidad</label>
+        <input class="form-control" id="quantity" name="quantity" type="number" value="1" min="0">
+      </div>
+      <div>
+        <label for="unit-product-price">Precio unitario</label>
+        <input class="form-control" id="unit-product-price" name="unit-product-price" type="text" value="AR$ 200" disabled>
+      </div>
+      <div>
+        <label for="total-product-price">Total x producto</label>
+        <input class="form-control" id="total-product-price" name="total-product-price" type="text" value="AR$ 200" disabled>
+      </div>
+      <div>
+        <input class="btn btn-primary" type="button" value="Agregar" disabled>
+      </div>
+    </div>
+    <div class="products__list">
+      <div class="fw-thead fw-row">
+        <div class="fw-cell"><label>Producto / Servicio</label></div>
+        <div class="fw-cell"><label>Cantidad</label></div>
+        <div class="fw-cell"><label>Precio unitario</label></div>
+        <div class="fw-cell"><label>Total x producto</label></div>
+        <div class="fw-cell"></div>
+      </div>
+      <div class="fw-tbody">
+        <div class="fw-row">
+          <div class="fw-cell">
+            <input class="form-control" id="products" name="products" type="text" placeholder="Buscar...">
+          </div>
+          <div class="fw-cell">
+            <input class="form-control" id="quantity" name="quantity" type="number" value="1" min="1">
+          </div>
+          <div class="fw-cell">
+            <input class="form-control" id="unit-product-price" name="unit-product-price" type="text" value="AR$ 200" disabled>
+          </div>
+          <div class="fw-cell">
+            <input class="form-control" id="total-product-price" name="total-product-price" type="text" value="AR$ 200" disabled>
+          </div>
+          <div class="fw-cell">
+            <button class="btn btn-success btn-sm" title="Agregar producto / servicio">+</button>
+          </div>
+        </div>
+        <div class="fw-row">
+          <div class="fw-cell">Impresora HP 3635</div>
+          <div class="fw-cell">
+            <input class="form-control fillable" type="number" min="1" value="100">
+          </div>
+          <div class="fw-cell">AR$ 1.500</div>
+          <div class="fw-cell">AR$ 150.000</div>
+          <div class="fw-cell">
+            <button class="btn btn-danger btn-sm" title="Eliminar producto / servicio">x</button>
+          </div>
+        </div>
+        <div class="fw-row">
+          <div class="fw-cell">Impresora HP 6230</div>
+          <div class="fw-cell">
+            <input class="form-control fillable" type="number" min="1" value="100">
+          </div>
+          <div class="fw-cell">AR$ 1.200</div>
+          <div class="fw-cell">AR$ 120.000</div>
+          <div class="fw-cell">
+            <button class="btn btn-danger btn-sm" title="Eliminar producto / servicio">x</button>
+          </div>
+        </div>
+        <div class="fw-row">
+          <div class="fw-cell">Redondeo</div>
+          <div class="fw-cell">
+            <input class="form-control fillable" type="number" min="1" value="1">
+          </div>
+          <div class="fw-cell">AR$ 0,06</div>
+          <div class="fw-cell">AR$ 0,06</div>
+          <div class="fw-cell">
+            <button class="btn btn-danger btn-sm" title="Eliminar producto / servicio">x</button>
+          </div>
+        </div>
+      </div>
+      <div class="fw-tfoot fw-row">
+        <div class="fw-cell"></div>
+        <div class="fw-cell"></div>
+        <div class="fw-cell"></div>
+        <div class="fw-cell">AR$ 270.000,06</div>
+        <div class="fw-cell"></div>
+      </div>
+    </div>
+    <div class="products__calcs">
+      <div>
+        <label for="neto-21">Neto 21%</label>
+        <input class="form-control fillable" id="neto-21" name="neto-21" type="text">
+      </div>
+      <div>
+        <label for="neto-10">Neto 10,5%</label>
+        <input class="form-control fillable" id="neto-10" name="neto-10" type="text">
+      </div>
+      <div>
+        <label for="neto-27">Neto 27%</label>
+        <input class="form-control fillable" id="neto-27" name="neto-27" type="text">
+      </div>
+      <div>
+        <label for="iva-21">IVA 21%</label>
+        <input class="form-control fillable" id="iva-21" name="iva-21" type="text">
+      </div>
+      <div>
+        <label for="iva-10">IVA 10,5%</label>
+        <input class="form-control fillable" id="iva-10" name="iva-10" type="text">
+      </div>
+      <div>
+        <label for="iva-27">IVA 27%</label>
+        <input class="form-control fillable" id="iva-27" name="iva-27" type="text">
+      </div>
+      <div>
+        <label for="ibb-caba">IBB CABA</label>
+        <input class="form-control fillable" id="ibb-caba" name="ibb-caba" type="text">
+      </div>
+      <div>
+        <label for="ibb-pba">IBB PBA</label>
+        <input class="form-control fillable" id="ibb-pba" name="ibb-pba" type="text">
+      </div>
+      <div>
+        <label for="ibb-misiones">IBB Misiones</label>
+        <input class="form-control fillable" id="ibb-misiones" name="ibb-misiones" type="text">
+      </div>
+      <div>
+        <label for="ibb-cordoba">IBB Córdoba</label>
+        <input class="form-control fillable" id="ibb-cordoba" name="ibb-cordoba" type="text">
+      </div>
+      <div>
+        <label for="perc-iva">Perc. IVA</label>
+        <input class="form-control fillable" id="perc-iva" name="perc-iva" type="text">
+      </div>
+      <div>
+        <label for="imp-inter">Imp. inter</label>
+        <input class="form-control fillable" id="imp-inter" name="imp-inter" type="text">
+      </div>
+      <div>
+        <label for="conc">Conc.</label>
+        <input class="form-control fillable" id="conc" name="conc" type="text">
+      </div>
+      <div>
+        <label for="nn-gravado">N. no ggravado</label>
+        <input class="form-control fillable" id="nn-gravado" name="nn-gravado" type="text">
+      </div>
+      <div>
+        <label for="cambio">Tipo de cambio</label>
+        <input class="form-control fillable" id="cambio" name="cambio" type="text">
+      </div>
+      <div>
+        <label for="total">Total</label>
+        <input class="form-control" id="total" name="total" type="text" value="AR$ 270.000,06" disabled>
+      </div>
+    </div>
+  </section>
+
+  <section class="payment fw-box">
+    <h3>Pago</h3>
+    <div class="payment__all">
+      <div>
+        <label for="banco">Seleccionar Banco</label>
+        <select class="form-control" id="banco" name="banco">
+          <option value="0">Banco Francés Depósito</option>
+          <option value="1">Banco Francés Transferencia</option>
+        </select>
+        <input class="form-control" id="banco-monto" name="banco-monto" type="text" placeholder="Ingresar monto">
+      </div>
+      <div>
+        <label for="caja-1-monto">Caja 1</label>
+        <input class="form-control" id="caja-1-monto" name="caja-1-monto" type="text" placeholder="Ingresar monto">
+      </div>
+      <div>
+        <label for="otra-caja">Otra Caja</label>
+        <select class="form-control" id="otra-caja" name="otra-caja">
+          <option value="0">Caja 2</option>
+          <option value="1">Caja 3</option>
+        </select>
+        <input class="form-control" id="otra-caja-monto" name="otra-caja-monto" type="text" placeholder="Ingresar monto">
+      </div>
+      <div>
+        <label for="no-ingresa-monto">No ingresa</label>
+        <input class="form-control" id="no-ingresa-monto" name="no-ingresa-monto" type="text" placeholder="Ingresar monto">
+      </div>
+    </div>
+    <div class="payment__checks">
+      <aside class="payment__checks__loader">
+        <label for="checks-quantity">Agregar Cheques</label>
+        <form id="add-check-slot" action="">
+          <div class="flex">
+            <input class="form-control" id="checks-quantity" name="checks-quantity" type="number" min="1" value="1">
+            <button class="btn btn-success add-check-slot" type="submit" title="Agrega cheque/s">+</button>
+          </div>
+        </form>
+        <p><b><span class="checks-quantity">1</span></b> cheque/s hasta el momento.</p>
+      </aside>
+      <div class="payment__checks__detail">
+        <div class="payment__checks__detail__head fw-row">
+          <div class="fw-cell">
+            <label>Banco</label>
+            <select class="form-control">
+              <option value=""></option>
+            </select>
+          </div>
+          <div class="fw-cell">
+            <label>Nº de cheque</label>
+            <input class="form-control hidden" type="text">
+          </div>
+          <div class="fw-cell">
+            <label>Fecha emisión</label>
+            <input class="form-control hidden" type="date">
+          </div>
+          <div class="fw-cell">
+            <label>Fecha cobro<label>
+            <input class="form-control hidden" type="date">
+          </div>
+          <div class="fw-cell">
+            <label>Monto</label>
+            <input class="form-control hidden" type="text">
+          </div>
+          <div class="fw-cell">
+            <button class="btn btn-danger hidden">x</button>
+          </div>
+        </div>
+        <div class="payment__checks__detail__body">
+          <div class="payment__checks__detail__body__slot fw-row">
+            <div class="fw-cell">
+              <select class="form-control fillable" id="" name="">
+                <option value="0">BBVA</option>
+                <option value="1">Banco Patagonia</option>
+              </select>
+            </div>
+            <div class="fw-cell">
+              <input class="form-control fillable" id="" name="" type="text">
+            </div>
+            <div class="fw-cell">
+              <input class="form-control fillable" id="" name="" type="date">
+            </div>
+            <div class="fw-cell">
+              <input class="form-control fillable" id="" name="" type="date">
+            </div>
+            <div class="fw-cell">
+              <input class="form-control fillable" id="" name="" type="text">
+            </div>
+            <div class="fw-cell">
+              <button class="btn btn-danger remove-check-slot" title="Eliminar cheque">x</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+      
+  <footer class="controls">
+    <div class="btn btn-warning">Pendiente de recepción</div>
+    <div class="btn btn-success">Recibido</div>
+  </footer>
+</main>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
